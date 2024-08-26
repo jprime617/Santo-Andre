@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar, Animated, Easing } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar, Animated, Easing, Modal } from 'react-native';
 
 
 const App = () => {
 
-    const [saldo, setSaldo] = useState(7320.93);
-    const [num, setNum] = useState()
+    const [saldo, setSaldo] = useState(100);
+    const [num, setNum] = useState("")
+    const [modalvisivel, setModalvisivel] = useState(false)
     
 
     const styles = StyleSheet.create({
@@ -41,6 +42,33 @@ const App = () => {
             
         }
     })
+
+    const sacar = function () {
+        var numero = parseFloat(num)
+        if (numero > saldo || numero < 1 || num === ""){
+            return console.log("CALMA LA PAIZAO")
+        }
+        var oi1 = saldo - numero
+        var taxa = oi1 * 0.025
+        total = numero + taxa
+        console.log(total)
+        setSaldo(saldo - total)
+        setNum("")
+        
+        
+    }
+
+    const depositar = function () {
+        var numero = parseFloat(num)
+        if (numero < 1 || num === ""){
+            return console.log("CALMA LA PAIZAO")
+        }
+        taxa = numero * 0.01
+        total = numero + taxa
+        console.log(total)
+        setSaldo(saldo + total)
+        setNum("")
+    }
     
     return (
         <View style={styles.container}>
@@ -58,16 +86,27 @@ const App = () => {
                 style={styles.input}
                 placeholder="0,00"
                 keyboardType="numeric"
+                onChangeText={setNum}
+                value={num}
             />
             <Button
             title="Sacar"
-            color={'#F21628'} />
+            color={'#F21628'}
+            onPress={sacar}
+            />
             <Button
             style={styles.button}
             color={'#F21628'}
             title="Depositar"
+            onPress={depositar}
             />
-
+            <Modal
+            animationType="fade"
+            visible={modalvisivel}
+            transparent={true}
+            >
+                <Text style={styles.fontSal}>OLHA O MODEL AI</Text>
+            </Modal>
 
         </View>
     )

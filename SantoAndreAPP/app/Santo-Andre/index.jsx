@@ -90,24 +90,24 @@ const App = () => {
                 value={num}
             />
             <Button
-            title="Sacar"
-            color={'#F21628'}
-            onPress={sacar}
+                title="Sacar"
+                color={'#F21628'}
+                onPress={sacar}
             />
             <Button
-            style={styles.button}
-            color={'#F21628'}
-            title="Depositar"
-            onPress={depositar}
+                style={styles.button}
+                color={'#F21628'}
+                title="Depositar"
+                onPress={depositar}
             />
             <Modal
-            animationType="fade"
-            visible={modalvisivel}
-            transparent={true}
+                animationType="fade"
+                visible={modalvisivel}
+                transparent={true}
             >
                 <Text style={styles.fontSal}>OLHA O MODEL AI</Text>
+                
             </Modal>
-
         </View>
     )
 

@@ -69,9 +69,9 @@ const App = () => {
             default:
                 return;
         }
-
+        console.log(total)
         setNum("");
-        setModalvisivel(true); // Exibe o modal para confirmação
+        setModalvisivel(true);
     }
 
     const confirmarOperacao = () => {
@@ -112,11 +112,10 @@ const App = () => {
             <Modal
                 animationType="fade"
                 visible={modalvisivel}
-                transparent={true}
             >
                 <View style={styles.container}>
                     <Text style={styles.fontSal}>
-                        Confirma a operação de {valorTemp < 0 ? "Saque" : "Depósito"} de R$ {Math.abs(valorTemp).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}?
+                        Confirma a operação de Saque/Deposito de R$ {Math.abs(valorTemp).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}?
                     </Text>
                     <Text style={styles.fontSal}>
                         Seu Saldo Será: R$ {(saldo + valorTemp).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}

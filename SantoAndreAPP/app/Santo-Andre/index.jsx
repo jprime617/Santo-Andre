@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar, Modal } fr
 
 const App = () => {
 
-    const [saldo, setSaldo] = useState(100);
+    const [saldo, setSaldo] = useState(7320.92);
     const [num, setNum] = useState("");
     const [modalvisivel, setModalvisivel] = useState(false);
-    const [valorTemp, setValorTemp] = useState(0); // Estado para armazenar o valor temporário
+    const [valorTemp, setValorTemp] = useState(0); 
 
     const styles = StyleSheet.create({
         container: {
@@ -57,13 +57,13 @@ const App = () => {
                 const oi1 = saldo - numero;
                 const taxaSaque = oi1 * 0.025;
                 total = numero + taxaSaque;
-                setValorTemp(-total); // Armazena o valor temporário (negativo porque é um saque)
+                setValorTemp(-total); 
                 break;
 
             case 'depositar':
                 const taxaDeposito = numero * 0.01;
                 total = numero + taxaDeposito;
-                setValorTemp(total); // Armazena o valor temporário (positivo porque é um depósito)
+                setValorTemp(total); 
                 break;
 
             default:
@@ -75,9 +75,9 @@ const App = () => {
     }
 
     const confirmarOperacao = () => {
-        setSaldo(saldo + valorTemp); // Atualiza o saldo com o valor temporário
-        setModalvisivel(false); // Fecha o modal após confirmar
-        setValorTemp(0); // Reseta o valor temporário
+        setSaldo(saldo + valorTemp); 
+        setModalvisivel(false); 
+        setValorTemp(0); 
     };
 
     return (

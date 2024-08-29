@@ -7,6 +7,7 @@ const App = () => {
     const [num, setNum] = useState("");
     const [modalvisivel, setModalvisivel] = useState(false);
     const [valorTemp, setValorTemp] = useState(0); 
+    //tem um milhão de formas de morrer
 
     const styles = StyleSheet.create({
         container: {
